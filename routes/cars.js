@@ -39,6 +39,17 @@ carsRouter.post('/new',(req,res)=> {
         dbQuery(queryStatement, [make,model,year,odometer], req,res)
 })
 
+carsRouter.put('/update/:carId',(req,res)=> {
+    console.log(req.params.carId)
+    let make = req.body.make
+    let model = req.body.model
+    let year = req.body.year
+    let odometer = req.body.odometer
+    const queryStatement = `UPDATE cars SET
+    make=$1,model=$2,year=$3,odometer=$4 WHERE car_id=$5 RETURNING *;`
+    dbQuery(queryStatement, [make,model,year,odometer,req.params.carId], req,res)
+})
+
 carsRouter.delete('/delete/:carId',(req,res)=> {
     console.log(req.params.carId)
     const queryStatement = `DELETE FROM cars WHERE car_id =$1;;`
