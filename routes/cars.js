@@ -11,8 +11,7 @@ carsRouter.get('/test', (req,res)=>{
     res.status(200).json({"cars":"test"})
 })
 
-carsRouter.get('/all', (req,res)=> {
-
+carsRouter.get('/all',(req,res)=> {
     console.log(req.headers)
     if(req.headers.admin){
         const queryStatement = "SELECT * FROM cars;"
@@ -27,8 +26,35 @@ carsRouter.get('/all', (req,res)=> {
     } else {
         res.status(403).json({"unauthorized":"please use an admin header"})
     }
-    
 })
+
+carsRouter.post('/new',(req,res)=> {
+    console.log(req.body)
+    let make = req.body.make
+    let model = req.body.model
+    let year = req.body.year
+    let odometer = req.body.odometer
+    const queryStatement = `INSERT INTO cars (make,model,year,odometer
+        ) VALUES ($1,$2,$3,$4) RETURNING *;`
+        dbQuery(queryStatement, [make,model,year,odometer], req,res)
+})
+
+carsRouter.delete('/delete/:carId',(req,res)=> {
+    console.log(req.params.carId)
+    const queryStatement = `DELETE FROM cars WHERE car_id =$1;;`
+        dbQuery(queryStatement, [req.params.carId], req,res)
+})
+
+const dbQuery = (queryStatement, params, request, response) => {
+    db.query(queryStatement,params, (error, results) => {
+        if(error){
+            response.status(500).json(error)
+        } else {
+            result = results.rows 
+            response.status(200).json(result)
+        }
+    })
+}
 
 
 module.exports = carsRouter; 
