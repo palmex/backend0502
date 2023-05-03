@@ -1,9 +1,9 @@
 const express = require('express')
+const dotenv = require('dotenv')
+const db = require('./db')
 
-
-
+dotenv.config()
 const app = express()
-
 app.use(express.json())
 
 const port = 3000
@@ -25,7 +25,18 @@ app.post('/async', (req, res)=> {
 })
 
 // API endpoint #2
-app.post('/name', ()=> {})
+app.get('/db', (req,res)=> {
+    const queryStatement = "SELECT * FROM cars;"
+    db.query(queryStatement, (error, results)=>{
+        if(error){
+            res.status(500).json(error)
+        } else {
+            console.log(results)
+            result = results.rows 
+            res.status(200).json(result)
+        }
+    })
+})
 
 // API endpoint #3 - echo back request body
 app.post('/echo', (request,response) => {
