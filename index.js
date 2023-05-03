@@ -10,14 +10,30 @@ const port = 3000
 
 // Our listener endpoints
 
-app.get('/name', ()=> {})
+// API endpoint #1
+app.post('/async', (req, res)=> {
+    // when a request comes...
+    console.log('1. Im calling the bank', req.body)
+    
+    // callback function
+    setTimeout(()=>{
+        console.log("3. bank finally calls back")
+        // below callback function
+        console.log('4. bank says you are compliant')
+        res.status(200).json({"thank you":"for your request"})
+    },3000)
+})
+
+// API endpoint #2
 app.post('/name', ()=> {})
 
-app.post('/', (request,response) => {
+// API endpoint #3 - echo back request body
+app.post('/echo', (request,response) => {
     console.log(request.body)
     response.status(200).json(request.body)
 })
 
+// API endpoint #4
 app.get('/test', (req,res) => {
     console.log("Im alive and well")
     res.status(200).json({"test": "endpoint"})
