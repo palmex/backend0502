@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9c4b54c4-6c0e-4877-8638-d5820a985ba0",
+		"_postman_id": "d113b053-49ff-4f91-af3a-63f96d619bb9",
 		"name": "module3_may",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -112,6 +112,148 @@
 						"cars",
 						"update",
 						"28482651-c975-44e5-831e-b775193ecd94"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/cars/1/:carId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/cars/1/c1c1fdd5-bcf7-4b93-9a12-c42409143559",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cars",
+						"1",
+						"c1c1fdd5-bcf7-4b93-9a12-c42409143559"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/all",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "admin",
+						"value": "true",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/users/all",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/new",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Mustafa\",\r\n    \"email\":\"mustafa@something.com\",\r\n    \"phone\":123456789\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/new",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/update/:userId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Mustafa\",\r\n    \"email\":\"mustafa@nothing.com\",\r\n    \"phone\":123456789\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/update/2a4393d2-4fa1-40b5-af23-8e381c1e7c0a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"update",
+						"2a4393d2-4fa1-40b5-af23-8e381c1e7c0a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/delete/:userId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/delete/ba6c0e4e-b7a9-4f16-8951-9250c67ae0e8",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"delete",
+						"ba6c0e4e-b7a9-4f16-8951-9250c67ae0e8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/1/:userId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/1/2a4393d2-4fa1-40b5-af23-8e381c1e7c0a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"2a4393d2-4fa1-40b5-af23-8e381c1e7c0a"
 					]
 				}
 			},
