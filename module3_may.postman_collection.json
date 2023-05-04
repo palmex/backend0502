@@ -116,6 +116,118 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "localhost:3000/users/all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "admin",
+						"value": "true",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/users/all",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/new",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Imre\",\r\n    \"email\":\"Imre@Ahmad.com\",\r\n    \"phone\":1231231234,\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/new",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/delete/:userId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/delete/60854308-a23d-4557-8711-505281341024",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"delete",
+						"60854308-a23d-4557-8711-505281341024"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/update/:userId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Imre\",\r\n    \"email\":\"Imre@Ahmad.com\",\r\n    \"phone\":1231231234,\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/update/28482651-c975-44e5-831e-b775193ecd94",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"update",
+						"28482651-c975-44e5-831e-b775193ecd94"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

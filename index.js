@@ -2,11 +2,13 @@ const express = require('express')
 const dotenv = require('dotenv')
 const db = require('./db')
 const carsRouter = require('./routes/cars')
+const usersRouter = require('./routes/users')
 
 dotenv.config()
 const app = express()
 app.use(express.json())
 app.use('/cars', carsRouter)
+app.use('/users', usersRouter)
 
 const port = 3000
 
