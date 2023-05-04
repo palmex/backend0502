@@ -27,6 +27,13 @@ carsRouter.get('/all',(req,res)=> {
         res.status(403).json({"unauthorized":"please use an admin header"})
     }
 })
+carsRouter.get('/1/:carId',(req,res)=> {
+    console.log(req.params.carId)
+   
+    const queryStatement = `SELECT * FROM cars WHERE car_id=$1;`
+    dbQuery(queryStatement, [req.params.carId], req,res)
+})
+
 
 carsRouter.post('/new',(req,res)=> {
     console.log(req.body)
