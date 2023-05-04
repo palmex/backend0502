@@ -17,6 +17,7 @@ carsRouter.get('/all',(req,res)=> {
         const queryStatement = "SELECT * FROM cars;"
         db.query(queryStatement, (error, results)=>{
             if(error){
+                console.log(error)
                 res.status(500).json(error)
             } else {
                 result = results.rows 
