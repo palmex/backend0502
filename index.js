@@ -3,9 +3,12 @@ const dotenv = require('dotenv')
 const db = require('./db')
 const carsRouter = require('./routes/cars')
 const usersRouter = require('./routes/users')
+const cors = require('cors')
 
 dotenv.config()
 const app = express()
+
+app.use(cors())
 app.use(express.json())
 app.use('/cars', carsRouter)
 app.use('/users', usersRouter)
